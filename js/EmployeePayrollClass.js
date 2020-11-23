@@ -1,4 +1,5 @@
 // Defining the class for the instance of data from the employee payroll webapplication
+// Defining the getters and setters for the employee payroll class for the instance memeber of the form
 class EmployeePayRoll {
   // getter and setter method
   get id() {
@@ -72,21 +73,21 @@ class EmployeePayRoll {
     const options = { year: "numeric", month: "short", day: "numeric" };
     const empDate = !this.startDate ? "undefined" : this.startDate;
     return (
-      "id=" +
+      "id -->" +
       this.id +
-      ", name='" +
+      ", name -->" +
       this.name +
-      ", gender='" +
+      ", gender= -->'" +
       this.gender +
-      ", profilePic='" +
+      ", profilePic= -->" +
       this.profilePic +
-      ", department=" +
+      ", department= -->" +
       this.department +
-      ", salary=" +
+      ", salary= -->" +
       this.salary +
-      ", startDate=" +
+      ", startDate= -->" +
       empDate +
-      ", note=" +
+      ", note= -->" +
       this.note
     );
   }
