@@ -72,7 +72,7 @@ class EmployeePayRoll {
   /// Defining toString method for aggregrating the data entered by the user
   toString() {
     const options = { year: "numeric", month: "short", day: "numeric" };
-    const empDate = !this.startDate ? "undefined" : this.startDate;
+    const empDate = this.startDate == null? "undefined" : this.startDate;
     return (
       "id -->" +
       this.id +
