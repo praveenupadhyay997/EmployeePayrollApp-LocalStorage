@@ -53,6 +53,8 @@ const save = () => {
   try {
     /// Calling create payroll function to create instance of employee payroll class
     let employeePayrollData = createEmployeePayroll();
+    /// Calling the create or update storage function to push the value to the browser local storage
+    createAndUpdateStorage(employeePayrollData);
   } catch (e) {
     /// Logging the error message if any
     alert(e);
@@ -88,7 +90,7 @@ const getSelectedValues = (propertyValue) => {
   let allItems = document.querySelectorAll(propertyValue);
   let setItems = [];
   allItems.forEach((item) => {
-    if (item.checked) selItems.push(item.value);
+    if (item.checked) setItems.push(item.value);
   });
   return setItems;
 };
@@ -102,3 +104,22 @@ const getInputElementValue = (id) => {
   let value = document.getElementById(id).value;
   return value;
 };
+/// Method to parse the input data to the lightweight json type and then push the data to the browser local storage
+function createAndUpdateStorage(employeePayrollData){
+
+  /// EmployeePayrollList will be the array of object parsed to JSON format
+  let employeePayrollList= JSON.parse(localStorage.getItem("EmployeePayrollList"));
+  /// If the employeePayrollData list is not empty i.e. already created then push the incoming data onto the local storage
+  if(employeePayrollList!=undefined)
+  {
+      employeePayrollList.push(employeePayrollData);
+  }
+  else
+  {
+      employeePayrollList=[employeePayrollData];
+  }
+  /// Displaying the alert popup for the user one more time before the local storage has been populated
+  alert(employeePayrollList.toString());
+  /// Push the data to the local storage
+  localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
+}
