@@ -23,7 +23,7 @@
     </header>
         <!--UC 2 Creating Form Header Section with employee detail and employee name input text box-->
     <div class="form-content">
-        <form autocomplete = "off" class="form" action="#" onsubmit="save(event); return false">
+        <form autocomplete = "off" class="form" action="#" onsubmit="save();">
             <div class="form-head">Employee Payroll form</div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
@@ -91,7 +91,7 @@
                 <label class="label text" for="startDate">Start Date </label>
             <div id="date"> 
                <select id="day" name="Day">
-                <option value="1">1</option> 
+                <option value="1" selected>1</option> 
                 <option value="2">2</option>
                 <option value="3">3</option> 
                 <option value="4">4</option> 
@@ -124,7 +124,7 @@
                 <option value="31">31</option> 
                </select>               
                <select id="month" name="Month">
-                <option value="January">January</option>
+                <option value="January" selected>January</option>
                 <option value="Febuary">Febuary</option>
                 <option value="March">March</option>
                 <option value="April">April</option> 
@@ -141,7 +141,7 @@
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
                     <option valne="2019">2019</option>
-                    <option value="2018">2018</option> 
+                    <option value="2018" selected>2018</option> 
                     <option value="2017">2017</option> 
                     <option value="2016">2016</option> 
                </select>

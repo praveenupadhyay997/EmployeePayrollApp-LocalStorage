@@ -22,26 +22,27 @@ name.addEventListener("input", () => {
   }
 });
 /// Validation for the date property entered by the user from the console
-const date = document.querySelector("#date");
-/// Using the event listener for the input of the date property
-date.addEventListener("input", function () {
-  let startDate =
-    getInputValueById("#day") +
-    " " +
-    getInputValueById("#month") +
-    " " +
-    getInputValueById("#year");
+//validation for date
+dateError= document.querySelector(".date-error");
+var year= document.querySelector('#year');
+var month= document.querySelector('#month');
+var day=document.querySelector('#day');
+let currentDate= new Date();
 
-  try {
-    employeePayrollObject.startDate = new Date(Date.parse(startDate));
-    setTextValue(".date-error", "");
-  } catch (e) {
-    setTextValue(".date-error", e);
-  }
-});
-/// Setting the element's text content
-const setTextValue = (id, value) => 
-{
-    const element = document.querySelector(id); 
-    element.textContent = value; 
-} 
+year.addEventListener('input',checkDate);
+month.addEventListener('input',checkDate);
+day.addEventListener('input',checkDate)
+
+function checkDate(){ 
+    try
+    {
+        let dates= document.querySelector('#day').value+" "+document.querySelector('#month').value+" "+document.querySelector('#year').value;
+        dates=new Date(Date.parse(dates));
+        employeePayrollObject.startDate=dates;
+        dateError.textContent="";
+    }
+    catch(e)
+    {
+        dateError.textContent=e;
+    }
+}
