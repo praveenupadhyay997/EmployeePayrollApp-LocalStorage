@@ -123,3 +123,32 @@ function createAndUpdateStorage(employeePayrollData){
   /// Push the data to the local storage
   localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
 }
+
+/// UC5 -- Defining the method to reset the form once the reset button is pressed
+/// Will be called once the reset button is clicked
+const resetForm=() =>
+{
+  /// Either set to empty or unset the values
+  setTextValue('#name','');
+  unsetSelectedValues('[name=profile]');
+  unsetSelectedValues('[name=gender]');
+  unsetSelectedValues('[name=department]');
+  setTextValue('#salary','');
+  setTextValue('#notes','');
+  unsetTextValue('#day');
+  unsetTextValue('#month');
+  unsetTextValue('#year');
+}
+/// Method defined to unset the property value changed in the base html and set the select status to be false
+const unsetSelectedValues= (propertyValue)=>{
+  let allItems= document.querySelectorAll(propertyValue);
+  allItems.forEach(items=>{
+      items.checked=false;
+  });
+}
+/// Either set the element value with the one passed in as value
+const setTextValue=(id,value)=>
+{
+  const element= document.querySelector(id);
+  element.textContent=value;
+} 
